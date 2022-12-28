@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+
+//colors
+
+:root {
+   --bg-color:#FFFEF2;
+   --bg-dark: #15202B;
+   --danger: #f06c15;
+   --bg-success:#1f9429;
+   --bg-white:#ffff;
+}
+
+
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-dark);
+  color: #fff;
+}
+
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Typography */
+p {
+  margin: 0 0 1.3rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+
+/* Anchors */
+a {
+  color: white;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #CB4CE0; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #9114B6; 
+}
+
+
+.markdown__container{
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  
+ .col1, 
+ .col2 {
+    flex: 1;
+    padding: .5rem;
+  }
+
+  .col1 {
+    .editor__container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      .download-button {
+        padding: 10px 20px;
+        margin: 0 10px 5px 0;
+        border-radius: 50px;
+        border: none;
+        background: #ebe7df;
+        color:#333;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: -2px 2px 28px 4px rgba(115,135,161,0.75);
+      }
+
+      .clear-button {
+        padding: 10px 20px;
+        margin: 0 10px 5px 0;
+        border-radius: 50px;
+        border: none;
+        background: var(--danger);
+        color:var(--white);
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: -2px 2px 28px 4px rgba(115,135,161,0.75);
+      }
+    }
+
+    .import {
+      display: flex;
+      flex-direction: column;
+
+      .file {
+        width:90px;
+        margin-bottom: 10px;
+      }
+
+      label{
+        font-size:12px;
+      }
+    }
+
+    .editor-input {
+      width: 100%;
+      flex-grow: 1;
+      color: var(--bg-white);
+      margin-bottom: 20px;
+      border: none;
+      outline: none;
+      appearance: none;
+      background: none;
+      resize: none;
+    }
+  }
+
+  .col2 {
+    .preview__container {
+      display: flex;
+      flex-direction: column;
+      height: 100%
+    }
+
+    .preview-scroll {
+      overflow:auto;
+      flex-grow: 1;
+    }
+  }
+}
+
+/* The Modal (background) */
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  color:#333;
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 80%;
+
+    input[type=text] {
+      width: 100%;
+      padding: 12px 20px;
+      height: 44px;
+      background: var(--bg-white);
+      border: 1px solid transparent;
+      box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+      border-radius: 24px;
+    }
+
+    input[type=text]:focus {
+      outline: none;
+    }
+
+    .save {
+      width: 120px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      margin-top:10px;
+      border: none;
+      background: var(--bg-success);
+      color:#333;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: -2px 2px 28px 4px rgba(115,135,161,0.50);
+    }
+  }
+
+  .close {
+    text-align: right;
+    font-size: 28px;
+    font-weight: bold;
+    color:var(--danger);
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .markdown__container{
+    flex-direction: column;
+
+    .col1 {
+      .editor-input {
+        height: 400px;
+      }
+    }
+  }
+}
