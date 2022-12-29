@@ -65,25 +65,24 @@ const Editor = ({value, setValue} : TValue) => {
 
     return ( 
         <>
-            <div className="editor__container">
-                <h2 className="title">Editor</h2>
-                <div className="import">
-                    <label>Import file :</label>
-                    <input type="file" ref={inputRef} className="file" onChange={handleFile}/>
-                </div>
-                <textarea className="editor-input" value={value} onChange={(e) => setValue(e.target.value)}/>
-                {
-                    value && 
-                    (
-                    <div className="btn-actions">
-                        <button className="download-button" onClick={() => setOpen(true)}>Download</button>
-                        <button className="clear-button" onClick={reset}>&times; CLEAR</button>
-                    </div>
-                    )
-                }
+        <div className="editor__container">
+            <h2 className="title">Editor</h2>
+            <div className="import">
+                <label>Import file :</label>
+                <input type="file" ref={inputRef} className="file" onChange={handleFile}/>
             </div>
-            { isOpen && <DownloadModal setOpen={setOpen} title={title} setTitle={setTitle} markdown={value} />}
-            
+            <textarea className="editor-input" value={value} onChange={(e) => setValue(e.target.value)}/>
+            {
+                value && 
+                (
+                <div className="btn-actions">
+                    <button className="download-button" onClick={() => setOpen(true)}>Download</button>
+                    <button className="clear-button" onClick={reset}>&times; CLEAR</button>
+                </div>
+                )
+            }
+        </div>
+        { isOpen && <DownloadModal setOpen={setOpen} title={title} setTitle={setTitle} markdown={value} />}
         </>
     );
 }
