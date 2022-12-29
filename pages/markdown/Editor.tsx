@@ -1,16 +1,5 @@
 import {useRef, useState, useEffect} from 'react';
-
-type TValue =  {
-    value:string;
-    setValue: (value: string) => void;
-}
-
-type TModal = {
-    markdown: string;
-    title: string;
-    setTitle: (value: string) => void;
-    setOpen: (value: boolean) => void;
-}
+import { TValue, TModal } from '../types/markdown.types';
 
 const DownloadModal = ({setOpen, title, setTitle, markdown}: TModal) => {
     const handleClose = () => {
@@ -77,7 +66,7 @@ const Editor = ({value, setValue} : TValue) => {
     return ( 
         <>
             <div className="editor__container">
-                <h2 className="title">Markdown Editor</h2>
+                <h2 className="title">Editor</h2>
                 <div className="import">
                     <label>Import file :</label>
                     <input type="file" ref={inputRef} className="file" onChange={handleFile}/>
